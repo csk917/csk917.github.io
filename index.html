@@ -6,4 +6,39 @@
 <p>My first paragraph.</p>
 
 </body>
+
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.9.1/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.9.1/firebase-analytics.js"></script>
+
+<script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyCJkyIbzUrqeUAXwEHxBieJTvKUIOrGMkE",
+    authDomain: "sharedapp.firebaseapp.com",
+    databaseURL: "https://sharedapp.firebaseio.com",
+    projectId: "sharedapp",
+    storageBucket: "sharedapp.appspot.com",
+    messagingSenderId: "581994426403",
+    appId: "1:581994426403:web:c377656358e312f5894196",
+    measurementId: "G-4SDMNGZBW9"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+
+  var ref = firebase.database().ref();                           
+  ref.on("value", function(snapshot){
+    body.innerHTML = JSON.stringify(snapshot.val(), null, 2);
+});
+
+  </script>
 </html>
